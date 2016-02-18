@@ -1,0 +1,36 @@
+to import an existing WP install/site to c9.io for dev.
+
+1) mk copy of the root folder on the server - ftp this to local machine?
+2) mk copy/backup of database
+
+3)running wordpress on c9
+https://docs.c9.io/docs/running-wordpress-on-cloud9
+
+4) copy root folder to root folder
+
+5) how to do it to your pc using XAMPP
+http://codex.wordpress.org/Test_Driving_WordPress
+follow some instructions from here.
+
+
+set-up phpmyadmin on c9
+https://docs.c9.io/docs/setting-up-phpmyadmin
+
+how to do it to your pc using XAMPP
+http://codex.wordpress.org/Test_Driving_WordPress
+
+command line for sql db import/export
+http://wordpress.stackexchange.com/questions/75135/how-to-export-import-wordpress-mysql-database-properly-via-command-line
+
+steps
+https://wordpress.org/support/topic/how-to-copy-wordpress-site-to-local-test-server
+
+
+good tutorial
+http://torquemag.io/2015/05/how-to-duplicate-a-wordpress-website/
+
+
+Making a copy of your files and database
+Moving them to the new server
+Updating references in the database that refer to its old location
+Changing the values in wp-config.php to fit the new environment
