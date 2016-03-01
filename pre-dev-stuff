@@ -34,3 +34,24 @@ Making a copy of your files and database
 Moving them to the new server
 Updating references in the database that refer to its old location
 Changing the values in wp-config.php to fit the new environment
+
+
+
+
+1) using phpmyadmin -export database
+2) open C9 and create new wordpress template
+3) edit wp-congif to refeltct backuped database login
+in c9 terminal make sure sql is installed -> 
+mysql-ctl install
+Then install phpMyAdmin:
+phpmyadmin-ctl install ->here you get the login and url for phomyadmin eg: https://dev1-tolkadot.c9users.io/phpmyadmin
+After the installation is complete you'll just want to make sure mysql is running once more:
+mysql-ctl start
+
+4)  open the .sql backup .
+Find and replace all the instances of your old URL with your new URL. 
+For instance if your blog address is at http://example.com/wordpress/, and your files 
+on your computer are at /htdocs/wordpress/, replace it with http://127.0.0.1/wordpress/.
+SAVE
+
+4) open phpmyadmin and import the backedup database
