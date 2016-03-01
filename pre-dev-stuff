@@ -62,8 +62,8 @@ After the installation is complete you'll just want to make sure mysql is runnin
 mysql-ctl start
 
 
-4) open phpmyadmin c9 
-slelect the c9 databse and import the backed up.sql files you just edited.
+4) open phpmyadmin c9 - https://dev1-tolkadot.c9users.io/phpmyadmin 
+select the c9 databse and import the backed up.sql files you just edited.
 
 stop and start sql 
 
@@ -72,4 +72,9 @@ and use the login/password for the original install to login
 
 6) make  ftp dir on c9 server
 from ftp dir ftp to the live server and get the root directory
-(Can't get cmd line access to ftp the live server so need to use a client - fto to local machine and transfer up to c9) 
+(Can't get cmd line access to ftp the live server so need to use a client - ftp to local machine and copy up to c9) 
+Make a copy of the wp-config on the c9 server to wp-config-backup.php and then once all the files have been copied across delete the 
+imported wp_config and rename the backedup wp_config.
+
+
+https://xo4.x10hosting.com
