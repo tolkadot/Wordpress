@@ -36,11 +36,24 @@ Updating references in the database that refer to its old location
 Changing the values in wp-config.php to fit the new environment
 
 
-
+----------------------------------------------------------------------------------------------------------------------------------------
 
 1) using phpmyadmin -export database
+
+Under databases tab -> select the database 
+select the export tab 
+custom - >tables - >select all
+Add DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT statement
+open the .sql backup .
+Find and replace all the instances of your old URL with your new URL. 
+For instance if your blog address is at http://example.com/wordpress/, and your files 
+on your computer are at /htdocs/wordpress/, replace it with http://127.0.0.1/wordpress/.
+SAVE
+
+
 2) open C9 and create new wordpress template
-3) edit wp-congif to refeltct backuped database login
+
+3) edit wp-congif to reflect backuped database login ???????? 
 in c9 terminal make sure sql is installed -> 
 mysql-ctl install
 Then install phpMyAdmin:
@@ -48,10 +61,15 @@ phpmyadmin-ctl install ->here you get the login and url for phomyadmin eg: https
 After the installation is complete you'll just want to make sure mysql is running once more:
 mysql-ctl start
 
-4)  open the .sql backup .
-Find and replace all the instances of your old URL with your new URL. 
-For instance if your blog address is at http://example.com/wordpress/, and your files 
-on your computer are at /htdocs/wordpress/, replace it with http://127.0.0.1/wordpress/.
-SAVE
 
-4) open phpmyadmin and import the backedup database
+4) open phpmyadmin c9 
+slelect the c9 databse and import the backed up.sql files you just edited.
+
+stop and start sql 
+
+5) https://dev1-tolkadot.c9users.io/wp-admin/
+and use the login/password for the original install to login 
+
+6) make  ftp dir on c9 server
+from ftp dir ftp to the live server and get the root directory
+(Can't get cmd line access to ftp the live server so need to use a client - fto to local machine and transfer up to c9) 
