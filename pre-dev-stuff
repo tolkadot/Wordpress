@@ -53,11 +53,11 @@ SAVE
 
 2) open C9 and create new wordpress template
 
-3) edit wp-congif to reflect backuped database login ???????? 
+3) (not required?) edit wp-congif to reflect backuped database login ???????? 
 in c9 terminal make sure sql is installed -> 
 mysql-ctl install
 Then install phpMyAdmin:
-phpmyadmin-ctl install ->here you get the login and url for phomyadmin eg: https://dev1-tolkadot.c9users.io/phpmyadmin
+phpmyadmin-ctl install ->here you get the login and url for phpmyadmin eg: https://dev1-tolkadot.c9users.io/phpmyadmin
 After the installation is complete you'll just want to make sure mysql is running once more:
 mysql-ctl start
 
