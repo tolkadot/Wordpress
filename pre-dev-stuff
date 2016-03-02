@@ -77,4 +77,16 @@ Make a copy of the wp-config on the c9 server to wp-config-backup.php and then o
 imported wp_config and rename the backedup wp_config.
 
 
+7) make a .htaccess file on the c9 server ->
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+
 https://xo4.x10hosting.com
