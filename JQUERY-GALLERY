@@ -1,0 +1,15 @@
+create folder inside theme folder called myGallery
+copy in the /files to myGallery
+
+
+** NOTE THAT IF YOU ARE USING A CHILD THEME YOU WILL NEED TO CHANGE ALL THE PATHS **
+EG  -> '../../18-tags-child/myGallery/gallery_header_include.php'
+add a link to the css files (lightbox.css and gallery.css
+paste- > <?php include (TEMPLATEPATH . '/myGallery/gallery_header_include.php'); ?>
+to the header.php just before the </head>
+
+register & enque scripts
+paste contents of register-javascripts.txt into the gallery-functions-include.php
+
+paste the following into functions.php to include the javascript that we just registered
+<?php include (TEMPLATEPATH . '/myGallery/gallery_functions_include.php'); ?>
