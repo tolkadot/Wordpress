@@ -35,4 +35,9 @@ jQuery(document).ready(function(){
     
 });
 
+Here are some extra lines that we could add if we want to display the caption text with the lightbox image -> 
+ var captionText = jQuery(this).closest('.gallery-item').find('.wp-caption-text').html();
+        
+         jQuery(this).attr({'data-lightbox': 'slideshow', 'title' : captionText });
+        
 
