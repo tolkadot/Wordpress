@@ -13,3 +13,26 @@ paste contents of register-javascripts.txt into the gallery-functions-include.ph
 
 paste the following into functions.php to include the javascript that we just registered
 <?php include (TEMPLATEPATH . '/myGallery/gallery_functions_include.php'); ?>
+
+At this point check that the lighbox & gallery .css and .js files are being loaded into the head of the webpage
+
+Also - > check that gallery.js is loading properly by writing a simple jQuery alert 
+
+Style the galery in gallery.css -> add some padding or change the size of the images
+
+Add the lightbox functionality to gallery.js -> 
+
+jQuery(document).ready(function(){
+    
+ //alert("script is working");
+    
+    jQuery('.gallery a').each(function(){
+        
+         jQuery(this).attr('data-lightbox', 'slideshow');
+        
+    });
+    
+    
+});
+
+
