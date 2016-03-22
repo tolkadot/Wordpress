@@ -1,0 +1,181 @@
+/*
+Theme Name:   	18-tage child
+Theme URI:    	http://www.pootlepress.com/18-tags
+Template:  	18-tags
+Author:       	pootlepress/tolkadot
+Author URI:		http://www.pootlepress.com
+Description:  	child theme based on 18 tags by pootlepress
+Tags:         	Theme Options, Google Fonts, Accessibility Ready, Light, White, Custom Background, Custom Colors, Custom Header, Custom Menu, Featured Images, Full Width, Page Builder, Page Builder Ready, Left Sidebar, Light, Responsive Layout, Right Sidebar, Left Sidebar, RTL Language Support, Threaded Comments, Responsive Layout, Fluid Layout, One Column, Two Columns
+Text Domain:  	18-tags
+Version:      	1.0.3
+License:      	GNU General Public License v2 or later
+License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
+
+*/
+
+#masthead {
+    padding:0;
+}
+
+header#masthead.site-header {
+    margin:0 !important;
+}
+
+.site-footer {
+    background-color: transparent;
+}
+
+
+#frontPageHeading {
+   
+font-family: 'Didact Gothic', sans-serif;
+   text-shadow: .02em .02em .02em  #657a8e;
+   font-size: 4.5em;
+   text-align: left;
+   margin-top: 0em; 
+   margin-bottom:0 !important;
+   transform: scaleY(1.2); 
+   letter-spacing: .1em;
+   color: #394551;
+   padding: 0px 0px 0px 10px;
+   
+}
+
+#fontPageSubHeading {
+    margin: 0 0 0 0.2em;
+    color: #394551;
+    text-shadow: .02em .02em .02em  #657a8e;
+    font-family: 'Didact Gothic', sans-serif;
+    padding: 0px 0px 0px 10px;
+}
+
+.buttonBoxArea {
+    float: right;
+}
+
+li {
+font-family: 'Open Sans'; 
+color: #394551 !important;
+margin: auto;
+}
+
+.actionButton {
+    border: 1px solid #394551;
+    background-color: transparent;
+   box-shadow: none;
+    text-align: center;
+   /*background: #0358a8;*/
+   /*background: -webkit-gradient(linear, left top, left bottom, from(#4496e3), to(#0358a8));*/
+   /*background: -webkit-linear-gradient(top, #4496e3, #0358a8);*/
+   /*background: -moz-linear-gradient(top, #4496e3, #0358a8);*/
+   /*background: -ms-linear-gradient(top, #4496e3, #0358a8);*/
+   /*background: -o-linear-gradient(top, #4496e3, #0358a8);*/
+    font-size: 1.5em;
+    font-family: 'Didact Gothic', sans-serif;
+    font-weight: bold;
+    color:#394551;
+}
+
+.actionButton:hover {
+   border-top-color: #28597a;
+   background: transparent;
+   color: #0358a8;
+   }
+.actionButton:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+   
+.buttonDiv {
+    margin-top: 5em ;
+    margin-bottom: 1em;
+       
+   }
+   
+@media screen and (max-width: 768px) {
+   
+   #frontPageHeading {
+font-family: 'Didact Gothic', sans-serif;
+   text-shadow: .01em .01em .01em  #657a8e;
+   font-size: 3.9em;
+   text-align: left;
+   margin-top: 0em; 
+   margin-bottom: 1em !important;
+   
+   transform: scaleY(1.2); 
+   letter-spacing: .1em;
+   color: #394551;
+   padding: 0px 0px 0px 16px;
+   
+}
+}
+
+@media screen and (max-width: 500px) {
+   
+   #frontPageHeading {
+font-family: 'Didact Gothic', sans-serif;
+   text-shadow: .01em .01em .01em  #657a8e;
+   font-size: 3em;
+   text-align: left;
+   margin-top: 0em; 
+   margin-bottom: 1em !important;
+   
+   transform: scaleY(1.2); 
+   letter-spacing: .1em;
+   color: #394551;
+   padding: 0px 0px 0px 16px;
+   
+}
+#fontPageSubHeading {
+    margin: 0 0 0 0.2em;
+    color: #394551;
+    text-shadow: .02em .02em .02em  #657a8e;
+    font-family: 'Didact Gothic', sans-serif;
+    padding: 0px 0px 0px 16px; 
+    font-size: 1em;
+}
+}
+
+.regPageHeader {
+    background: url("https://janine-tolkadot.c9users.io/wp-content/uploads/2016/03/header-sand.jpg");
+}
+
+.red {
+    
+    float:right !important;
+}
+
+.childColFull{
+        max-width: 90em !important;
+}
+
+#regPageName {
+  font-family: 'Didact Gothic', sans-serif;
+   text-shadow: .01em .01em .01em  #657a8e;
+   font-size :2em;
+   transform: scaleY(1.2); 
+   letter-spacing: .1em;
+   color: #394551;
+}
+
+a {
+    color: #394551 !important;
+}
+
+.secondary-navigation {
+    background-color: transparent !important;
+}
+.social-info {
+    float:right;
+}
+
+
+.buttonHeader {
+    
+    float: right;
+  
+}
+.buttonHeader button {
+    background-color: white;
+    color: gray;
+}
