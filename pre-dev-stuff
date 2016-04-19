@@ -29,6 +29,11 @@ https://wordpress.org/support/topic/how-to-copy-wordpress-site-to-local-test-ser
 good tutorial
 http://torquemag.io/2015/05/how-to-duplicate-a-wordpress-website/
 
+step by step live to c9 env instructions:
+http://www.bilalakil.me/production-ready-cloud9-wordpress-development/
+
+tool to update sql references
+** http://pixelentity.com/wordpress-search-replace-domain/ **
 
 Making a copy of your files and database
 Moving them to the new server
