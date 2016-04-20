@@ -21,3 +21,19 @@ You can add this table again. Get the code from here https://gist.github.com/ano
 
 
 Server logs :  more /home/ubuntu/lib/apache2/log/error.log
+
+*********************************
+To enable database query logging, add the following line to the wp-config.php file:
+
+define('SAVEQUERIES', true);
+Enabling this setting affects your site's performance. You should only enable this setting for as long as it is necessary to debug a problem, and then disable it.
+
+The following PHP code snippet demonstrates how to dump the entire contents of the $wpdb->queries array to a page:
+
+<?php
+    global $wpdb;
+    print_r( $wpdb->queries );
+?>
+
+************************************************
+/home/ubuntu/php-error.log
