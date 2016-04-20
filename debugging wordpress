@@ -1,8 +1,20 @@
 wp-config.php
+// Enable WP_DEBUG mode
+define( 'WP_DEBUG', true );
 
+// Enable Debug logging to the /wp-content/debug.log file
+define( 'WP_DEBUG_LOG', true );
 
+// Disable display of errors and warnings 
+define( 'WP_DEBUG_DISPLAY', false );
+@ini_set( 'display_errors', 0 );
+
+// Use dev versions of core JS and CSS files (only needed if you are modifying these core files)
 define( 'SCRIPT_DEBUG', true );
 
+/* That's all, stop editing! Happy blogging. */
+
+https://nacin.com/2010/04/23/5-ways-to-debug-wordpress/
 
 ** some code to add missing table to your wp database **
 You can add this table again. Get the code from here https://gist.github.com/anonymous/80fb467852c2c71a5168. Place this code in your functions.php file in your theme's directory and refresh. You can delete the code after it's added the table.
