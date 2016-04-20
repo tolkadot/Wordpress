@@ -68,6 +68,7 @@ mysql-ctl start
 
 
 4) open phpmyadmin c9 - https://dev1-tolkadot.c9users.io/phpmyadmin 
+
 select the c9 databse and import the backed up.sql files you just edited.
 
 stop and start sql 
@@ -95,3 +96,14 @@ RewriteRule . /index.php [L]
 # END WordPress
 
 https://xo4.x10hosting.com
+
+********************************************
+************************************************************************************************************************************
+
+1) make copy of wp-content and *database from live server.
+2) create a workspace on c9  & update the *database with the new url
+3) copy wp-content to c9 (zip it first!)
+4) run phpmyadmin on c9 and login via the web-interface.
+5) select the c9 database and import the *database (check the data is actually there)
+6) (doing it this way we don't have to edit the wp-config file - but if we created a new database we will have to edit the wp-config file)
+7) make a .htaccess file on c9 as explianed above
