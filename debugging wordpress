@@ -2,3 +2,10 @@ wp-config.php
 
 
 define( 'SCRIPT_DEBUG', true );
+
+
+** some code to add missing table to your wp database **
+You can add this table again. Get the code from here https://gist.github.com/anonymous/80fb467852c2c71a5168. Place this code in your functions.php file in your theme's directory and refresh. You can delete the code after it's added the table.
+
+
+Server logs :  more /home/ubuntu/lib/apache2/log/error.log
