@@ -1,0 +1,4 @@
+wp-config.php
+
+
+define( 'SCRIPT_DEBUG', true );
