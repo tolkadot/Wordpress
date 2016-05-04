@@ -1,0 +1,6 @@
+Migrating from c9.io to a live site
+
+1) install wordpress on live server
+2) create a database user for the migration
+3) go to C9.io and backup the database and files to local machine
+4) upload/import c9.io database to the live database.
