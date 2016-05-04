@@ -13,6 +13,13 @@ open the .sql backup .
 Find and replace all the instances of your old URL with your new URL. (Global find/replace)
 For instance if your blog address is at http://example.com/wordpress/, and your files 
 on your computer are at /htdocs/wordpress/, replace it with http://127.0.0.1/wordpress/.
+
+*I also had to remove the following line from the .sql file to prevent the import from failing
+-- Database: `c9`
+--
+/*CREATE DATABASE IF NOT EXISTS `c9` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `c9`;*/
+
 SAVE
 **************************************************************************
 
