@@ -48,9 +48,9 @@ Changing the values in wp-config.php to fit the new environment
 Under databases tab -> select the database 
 select the export tab 
 custom - >tables - >select all
-Add DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT statement
+Add DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT statement -> GO
 open the .sql backup .
-Find and replace all the instances of your old URL with your new URL. 
+Find and replace all the instances of your old URL with your new URL. (Global find/replace)
 For instance if your blog address is at http://example.com/wordpress/, and your files 
 on your computer are at /htdocs/wordpress/, replace it with http://127.0.0.1/wordpress/.
 SAVE
