@@ -3,4 +3,23 @@ Migrating from c9.io to a live site
 1) install wordpress on live server
 2) create a database user for the migration
 3) go to C9.io and backup the database and files to local machine
+**************************************************************************
+using phpmyadmin -export database
+Under databases tab -> select the database 
+select the export tab 
+custom - >tables - >select all
+Add DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT statement -> GO
+open the .sql backup .
+Find and replace all the instances of your old URL with your new URL. (Global find/replace)
+For instance if your blog address is at http://example.com/wordpress/, and your files 
+on your computer are at /htdocs/wordpress/, replace it with http://127.0.0.1/wordpress/.
+SAVE
+**************************************************************************
+
 4) upload/import c9.io database to the live database.
+**************************************************************************
+Open PHPMYADMIN on the live server
+
+
+
+
