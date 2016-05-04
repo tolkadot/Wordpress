@@ -9,3 +9,4 @@ Some handy networking commands :
  whois 
  netstat -rn
  
+CNAME -> Caconical name
