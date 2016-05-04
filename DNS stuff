@@ -1,0 +1,11 @@
+Check the domain name provider is using the correct name servers!
+
+Some handy networking commands :
+ host -a janecarsonart.com
+ traceroute
+ ping
+ dig janecarsonart.bigcartel.com
+ sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say cache flushed -> clears the cache
+ whois 
+ netstat -rn
+ 
