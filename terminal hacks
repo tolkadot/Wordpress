@@ -4,3 +4,4 @@ defaults write com.apple.finder AppleShowAllFiles YES
 
 killall Finder
 
+tar -cvf wp-content.tar.gz wp-content
