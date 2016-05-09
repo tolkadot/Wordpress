@@ -9,11 +9,23 @@ Under databases tab -> select the database
 select the export tab 
 custom - >tables - >select all
 Add DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT statement -> GO
-open the .sql backup .
-Find and replace all the instances of your old URL with your new URL. (Global find/replace)
-For instance if your blog address is at http://example.com/wordpress/, and your files 
-on your computer are at /htdocs/wordpress/, replace it with http://127.0.0.1/wordpress/.
 
+an alternative to the next step (editing the .sql backup) is to go ahead and import the database then alter the required fields using PHPADMIN
+Under the field options_name, you need to look for siteurl. Click the Edit Field icon which can be found at the far left at the beginning of the row.
+When you click the edit field, an edit field window will appear. In the input box for option_value, you will see the URL of your local install probably something like: http://localhost/test. Carefully insert your new site url in this field, for example: http://www.wpbeginner.com
+Save the field by clicking the Go button.
+Next, you need to replicate this step for the option name: home. The wp_options page can be a few pages long, so simply find the home tab. Usually it is on the second page which you can navigate to by clicking on the pagination arrows in phpMyAdmin.
+Update the home url to be the same as your siteurl.
+
+I had a heap of trouble when migrating a c9 database to a live site as the siteurl for c9 was a https:// and the new one was a http://www.
+
+OR OR OR OR OR 
+.. open the .sql backup .
+ .. Find and replace all the instances of your old URL with your new URL. (Global find/replace)
+ .. For instance if your blog address is at http://example.com/wordpress/, and your files 
+ .. on your computer are at /htdocs/wordpress/, replace it with http://127.0.0.1/wordpress/.
+
+(the below can be prevented if you untick the 'create if not exists' while doing the db export
 *I also had to remove the following line from the .sql file to prevent the import from failing
 -- Database: `c9`
 --
@@ -27,6 +39,8 @@ SAVE
 **************************************************************************
 Open PHPMYADMIN on the live server
 
+
+Change the wp-config.php file if required to reflect the new db user.password.
 
 
 
