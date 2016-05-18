@@ -1,3 +1,5 @@
+
+*** When creating new galleries make sure to link to the media file and not the attachment page ****
 create folder inside theme folder called myGallery
 copy in the /files to myGallery
 
