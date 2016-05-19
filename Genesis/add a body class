@@ -1,0 +1,19 @@
+http://my.studiopress.com/snippets/custom-body-class/
+
+/***********Tolka DOT CSS ****************/
+
+.myClass {
+	background-color: red;
+}
+
+
+I added this to my front-page.php template to jsut target that page
+/*****************Adding a custom class to the front-page body for styling******************/
+
+add_filter( 'body_class', 'sp_body_class' );
+function sp_body_class( $classes ) {
+	
+	$classes[] = 'myClass';
+	return $classes;
+	
+}
