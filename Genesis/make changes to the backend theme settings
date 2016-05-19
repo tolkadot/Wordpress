@@ -1,0 +1,16 @@
+Genesis/lib/admin/theme-settings.php
+Here I'm removing the comments section of the theme settings by targeting ->  genesis-theme-settings-comments
+This var can be found in Genesis/lib/admin/theme-settings.php
+
+/**
+ * Changing backend stuff test 
+ *
+ */
+// Remove Metaboxes for comments
+add_action( 'genesis_theme_settings_metaboxes', 'dodder_remove_metaboxes' ); 
+
+function dodder_remove_metaboxes( $_genesis_theme_settings_pagehook ) 
+{ 
+	remove_meta_box( 'genesis-theme-settings-comments', $_genesis_theme_settings_pagehook, 'main' );
+	} 
+?>
