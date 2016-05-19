@@ -14,3 +14,5 @@ function dodder_remove_metaboxes( $_genesis_theme_settings_pagehook )
 	remove_meta_box( 'genesis-theme-settings-comments', $_genesis_theme_settings_pagehook, 'main' );
 	} 
 ?>
+
+genesis-theme-settings-nav -> using  this would remove the navigation option
