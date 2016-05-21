@@ -1,0 +1,7 @@
+// Add google fonts 
+add_action( 'wp_enqueue_scripts', 'addGoogleFonts' );
+function addGoogleFonts() {
+
+	wp_enqueue_style( 'minimum-google-fonts', '//fonts.googleapis.com/css?family=Raleway:400,700', array(), CHILD_THEME_VERSION );
+}
+
