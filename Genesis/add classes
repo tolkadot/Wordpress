@@ -1,0 +1,25 @@
+<?php
+//* Add class to .site-container
+add_filter('genesis_attr_site-container', 'jive_attributes_st_container');
+function jive_attributes_st_container($attributes) {
+	$attributes['class'] .= ' st-container';
+	return $attributes;
+}
+//* Add class to .site-inner
+add_filter('genesis_attr_site-inner', 'jive_attributes_st_inner');
+function jive_attributes_st_inner($attributes) {
+	$attributes['class'] .= ' st-pusher';
+	return $attributes;
+}
+//* Add class to .sidebar-wrap
+add_filter( 'genesis_attr_content-sidebar-wrap', 'jive_attributes_st_content' );
+function jive_attributes_st_content( $attributes ) {
+	$attributes['class'] = $attributes['class']. ' st-content';
+	return $attributes;
+}
+//* Add class to .content
+add_filter( 'genesis_attr_content', 'jive_attributes_st_content_inner' );
+function jive_attributes_st_content_inner( $attributes ) {
+	$attributes['class'] = $attributes['class']. ' st-content-inner';
+	return $attributes;
+}
