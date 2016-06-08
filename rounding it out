@@ -1,0 +1,43 @@
+set up backups
+
+clean up install
+*************************
+secure everything
+https://premium.wpmudev.org/blog/wordpress-security-tips/?mv=b&utm_expid=3606929-67.KOuGWaEfRS2elZCEv5f8LA.1&utm_referrer=https%3A%2F%2Fwww.google.com.au%2F
+wp-config.php
+        ///********tolkadot security stuff**********/
+        /**Disable the plugin and theme editor**/
+        define( 'DISALLOW_FILE_EDIT', true );
+        /**stop error reports**/
+        error_reporting(0);
+        @ini_set(‘display_errors’, 0);
+        *************************
+.ht-access read more here https://premium.wpmudev.org/blog/htaccess/
+        ///********tolkadot security stuff**********/
+        <files wp-config.php>
+        order allow,deny
+        deny from all
+        </files>
+        Options All -Indexes /**Makes directories non-browsable**//
+        
+        # Block the include-only files.
+        #START @tolkadot lockdown wp-inclues #
+        # Block the include-only files.
+        <IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteBase /
+        RewriteRule ^wp-admin/includes/ - [F,L]
+        RewriteRule !^wp-includes/ - [S=3]
+        RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+        RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+        RewriteRule ^wp-includes/theme-compat/ - [F,L]
+        </IfModule>
+        #END @tolkadot lockdown wp-inclues #
+        
+PLUGINs 
+
+Lockdown WP
+WP Security
+
+verify the site with google
+seo
