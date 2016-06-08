@@ -1,8 +1,11 @@
+style the 404 page
+*****************************************************************************************************************************
 set up backups
-
-clean up install
-*************************
-secure everything
+Updraft plus & google docs
+*****************************************************************************************************************************
+clean up install -> remove themes not used etc
+*****************************************************************************************************************************
+secure everything -> 
 https://premium.wpmudev.org/blog/wordpress-security-tips/?mv=b&utm_expid=3606929-67.KOuGWaEfRS2elZCEv5f8LA.1&utm_referrer=https%3A%2F%2Fwww.google.com.au%2F
 wp-config.php
         ///********tolkadot security stuff**********/
@@ -34,10 +37,12 @@ wp-config.php
         </IfModule>
         #END @tolkadot lockdown wp-inclues #
         
-PLUGINs 
+SECURITY PLUGINs 
 
 Lockdown WP
 WP Security
-
+****************************************************************************************************
 verify the site with google
+****************************************************************************************************
 seo
+****************************************************************************************************
