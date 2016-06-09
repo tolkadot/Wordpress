@@ -1,0 +1,31 @@
+sudo su -c "gem install sass"
+sudo gem install sass
+sass -v
+
+
+gem update --system
+$ gem install compass
+
+compass create {projectname} --syntax sass
+
+#create config.rb if its not there
+compass config config.rb
+
+#more here
+http://code.tutsplus.com/tutorials/a-wordpress-development-process-using-sass-and-compass--cms-21861
+
+*** ********* ********* ********* ********* ********* *********
+> sudo gem install breakpoint
+(in) config.rb 
+ require 'breakpoint' (at the top)
+ 
+ ********* ********* *********
+ 
+ get a copy of normalize.sass 
+ 
+ style.sass
+ @import "vars" (this is _vars.sass and it includes a template fot the top of our themes style.css)
+@import "theme_info" (_theme_info.sass -> theme spicifics uri/author etc)
+@import "Base/normalize" (our _normalize.sass in the /Base dir)
+@import "compass" (install  compass )
+@import "breakpoint" (install  breakpoint)
