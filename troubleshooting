@@ -1,0 +1,8 @@
+White Screen of Death
+
+/*Disable all plugins from phpMyAdmin*/
+
+In your WordPress database, go in the wp_options table. 
+Locate the option name “active_plugins”.
+Now edit the value of that option and change it to this: a:0:{}
+
