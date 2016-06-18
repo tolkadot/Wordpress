@@ -1,0 +1,13 @@
+<?php
+/*
+Plugin Name: My Plugin Name
+Plugin URI: http://www.tolakdot.com
+Description:  WordPress Plugin
+Version: 1.0
+Author: Dee Bryant
+Author URI: http://www.tolakdot.com
+*/
+    //
+    // the plugin code will go here..
+    //
+?>
