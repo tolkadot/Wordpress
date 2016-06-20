@@ -1,0 +1,5 @@
+Migration folder checklist
+1) tar -czvf wp-content.tar.gz wp-content -> download
+2) push latest theme to github
+3) phmyadmin -> export database
+4) download wp-config.php & .htaccess
