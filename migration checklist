@@ -1,5 +1,28 @@
-Migration folder checklist
+
+
+Dev Server
+**De-activate all security plugins**
 1) tar -czvf wp-content.tar.gz wp-content -> download
 2) push latest theme to github
-3) phmyadmin -> export database
+3) phmyadmin -> export database (make sure create if not exists is NOT checked)
 4) download wp-config.php & .htaccess
+5) Change url in database
+
+Live Server (phpMyAdmin)
+1) backup database
+2) Make new databse on CPANEL (post 2080)
+3) Make new user for database
+4) Import Database
+
+Live Server (FTP)
+1) push up new wp_content to the ftp folder
+2) make a copy of wp_content
+3) decompress it to the wp_content folder
+4) Edit the wp-config.php file to point to the right database
+5) Open the 'options' table and update the url.
+6)
+
+
+
+
+
