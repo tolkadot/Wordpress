@@ -1,0 +1,8 @@
+
+<!--tolka change here begin ------------------------------------------------------------------------------------------------->
+
+1) assets/js/frontend.min.js -> comment out all instances of 
+row.after( ' <img src="'+ajax_loader+'" >' );
+
+theme_name/style.css
+#yith-ywraq-form {display:none;} (this will hide the product "custom script from the request a quote page)
