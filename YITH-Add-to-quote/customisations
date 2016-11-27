@@ -4,5 +4,32 @@
 1) assets/js/frontend.min.js -> comment out all instances of 
 row.after( ' <img src="'+ajax_loader+'" >' );
 
-theme_name/style.css
+2)theme_name/style.css
 #yith-ywraq-form {display:none;} (this will hide the product "custom script from the request a quote page)
+
+3) cart-totals.php
+<!--tolka change here begin ------------------------------------------------------------------------------------------------->
+<?php
+function tolka_custom_script_incart() {
+	// Add your special product IDs here
+	$ids = array( '61' );;
+
+	// Products currently in the cart
+	$cart_ids = array();
+
+	// Find each product in the cart and add it to the $cart_ids array
+	foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
+		$cart_product = $values['data'];
+		$cart_ids[]   = $cart_product->id;
+	}
+
+	// If one of the special products are in the cart, return true.
+	if ( ! empty( array_intersect( $ids, $cart_ids ) ) ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+?>
+
+<!-- tolka change here end ------------------------------------------------------------------------------------------------->
