@@ -1,13 +1,16 @@
 
 <!--tolka change here begin ------------------------------------------------------------------------------------------------->
 
-1) assets/js/frontend.min.js -> comment out all instances of 
+
+1) yith-woocommerce-request-a-quote-premium/assets/js/frontend.min.js -> comment out all instances of 
 row.after( ' <img src="'+ajax_loader+'" >' );
+
 
 2)theme_name/style.css
 #yith-ywraq-form {display:none;} (this will hide the product "custom script from the request a quote page)
 
-3) cart-totals.php
+
+3)theme_name/woocommerce/cart-totals.php
 <!--tolka change here begin ------------------------------------------------------------------------------------------------->
 <?php
 function tolka_custom_script_incart() {
@@ -33,3 +36,6 @@ function tolka_custom_script_incart() {
 ?>
 
 <!-- tolka change here end ------------------------------------------------------------------------------------------------->
+
+4) yith-woocommerce-request-a-quote-premium/templates/my-account/view-quote.php
+ - > see file 
