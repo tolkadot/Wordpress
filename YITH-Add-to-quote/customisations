@@ -39,3 +39,8 @@ function tolka_custom_script_incart() {
 
 4) yith-woocommerce-request-a-quote-premium/templates/my-account/view-quote.php
  - > see file 
+ 
+ NEED To investigate the best way to umplement this - perhaps add this to my css and enque the woo commerce styles first then mine
+ 
+theme/woocommerce/assets/css/admin.scss: 
+ .wc-order-item-discount{ display: none !important;}
