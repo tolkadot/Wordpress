@@ -171,8 +171,8 @@ if ( in_array( $order->get_status(), array( 'ywraq-pending' , 'pending' ) ) ): ?
 	do_action( 'woocommerce_order_items_table', $order );
 	?>
 	</tbody>
-	<!--<tfoot>-->
-	<?php /*
+	<tfoot>
+	<?php 
 	$has_refund = false;
 
 	if ( $total_refunded = $order->get_total_refunded() ) {
@@ -183,22 +183,31 @@ if ( in_array( $order->get_status(), array( 'ywraq-pending' , 'pending' ) ) ): ?
 
 		foreach ( $totals as $key => $total ) {
 			$value = $total['value'];
-
+            $foo = $total['label'];
 			?>
-			<?php if ( $show_price ): ?>
+			<?php if ( $show_price && ($foo =="Shipping:") ): ?>
+			    
 				<tr>
-					<th scope="row"><?php echo $total['label']; ?></th>
+					<th scope="row"><?php echo $foo; ?></th>
 					<td><?php echo $value; ?></td>
 				</tr>
 			<?php endif ?>
+			<?php if ( $show_price && ($foo =="Total:") ): ?>
+			    
+				<tr>
+					<th scope="row"><?php echo $foo; ?></th>
+					<td><?php echo $value; ?></td>
+				</tr>
+			<?php endif ?>
+			
 			<?php
 		}
 	}
-	*/?>
-	<!--</tfoot>-->
+	?>
+	</tfoot>
 </table>
 
-<?php /* do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
+<?php /*  do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
 
 <header>
 	<h2><?php _e( 'Customer\'s details', 'yith-woocommerce-request-a-quote' ); ?></h2>
