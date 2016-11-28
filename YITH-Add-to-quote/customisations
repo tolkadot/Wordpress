@@ -43,4 +43,4 @@ function tolka_custom_script_incart() {
  NEED To investigate the best way to umplement this - perhaps add this to my css and enque the woo commerce styles first then mine
  
 theme/woocommerce/assets/css/admin.scss: 
- .wc-order-item-discount{ display: none !important;}
+.wc-order-item-discount, .line_subtotal, .line_subtotal_tax{ display: none !important;}
