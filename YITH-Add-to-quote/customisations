@@ -47,7 +47,8 @@ function tolka_custom_script_incart() {
 	
 <!-- tolka change here end ------------------------------------------------------------------------------------------------->
 
-4) yith-woocommerce-request-a-quote-premium/templates/my-account/view-quote.php
+4) yith-woocommerce-request-a-quote-premium/templates/myaccount/view-quote.php
+moved the new file to mytheme/woocommerce/myaccount/view-quote.php
  - > see file 
  
  NEED To investigate the best way to umplement this - perhaps add this to my css and enque the woo commerce styles first then mine
