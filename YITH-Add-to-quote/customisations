@@ -10,7 +10,7 @@ row.after( ' <img src="'+ajax_loader+'" >' );
 #yith-ywraq-form {display:none;} (this will hide the product "custom script from the request a quote page)
 
 
-3)theme_name/woocommerce/cart-totals.php
+3)theme_name/woocommerce/cart-totals.php -> if the custom script product is in the cart don't display discounts
 <!--tolka change here begin ------------------------------------------------------------------------------------------------->
 <?php
 function tolka_custom_script_incart() {
@@ -34,7 +34,17 @@ function tolka_custom_script_incart() {
 	}
 }
 ?>
-
+<!--tolka change here begin -------------------------------------------------------------------------------------------------->
+	 <?php if ( ! tolka_custom_script_incart() ) {
+	 ?>
+			<tr class="cart-discount coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
+				<th><?php wc_cart_totals_coupon_label( $coupon ); ?></th>
+				<td data-title="<?php echo esc_attr( wc_cart_totals_coupon_label( $coupon, false ) ); ?>"><?php wc_cart_totals_coupon_html( $coupon ); ?></td>
+			</tr>
+		<?php }	 ?>
+		
+<!--tolka change here end ----------------------------------------------------------------------------------------------------->		
+	
 <!-- tolka change here end ------------------------------------------------------------------------------------------------->
 
 4) yith-woocommerce-request-a-quote-premium/templates/my-account/view-quote.php
