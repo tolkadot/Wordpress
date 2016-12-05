@@ -21,35 +21,9 @@ theme/woocommerce/checkout/review-order.php
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+
 ?>
-<!--tolka change here begin ------------------------------------------------------------------------------------------------->
-<?php
-function tolka_custom_script_incart() {
-	// Add your special product IDs here
-	$ids = array( '61' );;
-
-	// Products currently in the cart
-	$cart_ids = array();
-
-	// Find each product in the cart and add it to the $cart_ids array
-	foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
-		$cart_product = $values['data'];
-		$cart_ids[]   = $cart_product->id;
-	}
-
-	// If one of the special products are in the cart, return true.
-	if ( ! empty( array_intersect( $ids, $cart_ids ) ) ) {
-		return true;
-	} else {
-		return false;
-	}
-}
-?>
-
-<!-- tolka change here end ------------------------------------------------------------------------------------------------->
-
-
-
 <table class="shop_table woocommerce-checkout-review-order-table">
 	<thead>
 		<tr>
@@ -59,11 +33,12 @@ function tolka_custom_script_incart() {
 	</thead>
 	<tbody>
 		<?php
+		$product_arr = []; //array to hold the product_id's
 			do_action( 'woocommerce_review_order_before_cart_contents' );
 
 			foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 				$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-
+                array_push($product_arr,  $_product->id ); //for each item in the cart push the product id into this array
 				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 					?>
 					<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
@@ -73,10 +48,18 @@ function tolka_custom_script_incart() {
 							<?php echo WC()->cart->get_item_data( $cart_item ); ?>
 						</td>
 						<td class="product-total">
-							<?php /* echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );*/ ?>
-	<!-- tolkdot - I have changed this line to make it appear that the product price is the quotes price. -->
-							<?php wc_cart_totals_order_total_html(); ?>
+							<?php
+								if ( ! td_check_order_product_id ) {
+								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
+								}
+						else { 
+						echo apply_filters('ywraq_quote_subtotal_item', ywraq_formatted_line_total( $order, $item ), $item['line_total'], $_product); 
+							
+							}
+							/*php  wc_cart_totals_order_total_html(); */
+							?>
 						</td>
+					</td>
 					</tr>
 					<?php
 				}
@@ -85,18 +68,23 @@ function tolka_custom_script_incart() {
 			do_action( 'woocommerce_review_order_after_cart_contents' );
 		?>
 	</tbody>
-	<tfoot>
-<!--tolka change here begin ----I'm removing the subtital and discount fields if this is an order for a custom script------------------------------------------------------------------------------------------>
-<?php if ( ! tolka_custom_script_incart() ) {
-	 ?>
 	
+	<tfoot>
+		
+<!--tolka change here begin ----I'm removing the subtotal and discount fields if this is an order for a custom script------------------------------------------------------------------------------------------>
+ <?php 
+
+if (in_array("61", $product_arr)==0) {
+	 ?>
+
 		<tr class="cart-subtotal">
-			<th><?php _e( 'Subtotal', 'woocommerce' ); ?></th>
+			<th><?php _e( 'Subtotal', 'woocommerce' ); ?> </th>
 			<td><?php wc_cart_totals_subtotal_html(); ?></td>
 		</tr>
+	
 <?php }	 ?>
 		<?php  foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
-		<?php if ( ! tolka_custom_script_incart() ) {
+		<?php if (in_array("61", $product_arr)==0) {
 	 ?>
 	
 			<tr class="cart-discount coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
