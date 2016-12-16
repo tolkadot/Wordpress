@@ -1,4 +1,8 @@
 
+functions.yith-request-quote.php LINE 632 - add the following line to remove the custom script from the shopping cart session.
+(632) $_SESSION['cart']->reset(true);
+
+
 <!--tolka change here begin ------------------------------------------------------------------------------------------------->
 
 
