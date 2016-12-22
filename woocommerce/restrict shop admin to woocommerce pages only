@@ -1,29 +1,18 @@
+
 function remove_menus () {
-global $menu;
-
-if( (current_user_can('install_themes')) ) { 
-$restricted = array(); } // check if admin and hide nothing
-else { // for all other users
-
-$temp_arr=wp_get_current_user();
+    $temp_arr=wp_get_current_user();
+    var_dump($temp_arr->roles[0]);
 if(($temp_arr->roles[0] == shop_manager)){
-$is_shop_user = true;
+    
+global $menu;
+    $restricted = array(__('Dashboard'), __('Posts'), __('Media'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Users'), __('Settings'), __('Comments'), __('Plugins'));
+    end ($menu);
+    while (prev($menu)){
+        $value = explode(' ',$menu[key($menu)][0]);
+        if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
+    }
+    remove_menu_page( 'wpcf7' ); 
 }
 
-
-if ($is_shop_user)
-$restricted = array(__('Dashboard'), __('Posts'), __('Media'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Users'), __('Settings'), __('Comments'), __('Plugins')); 
-// this removes a lot! Just delete the ones you want to keep showing
-end ($menu);
-while (prev($menu)){
-    $value = explode(' ',$menu[key($menu)][0]);
-    if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
 }
-remove_menu_page( 'wpcf7' ); 
-var_dump($is_shop_user);
-}
-}
-
 add_action('admin_menu', 'remove_menus');
-
-?>
