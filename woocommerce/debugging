@@ -1,0 +1,4 @@
+example : 
+      global $wp_filter;
+      var_export ($wp_filter['woocommerce_after_main_content']);
+      do_action( 'woocommerce_after_main_content' );
