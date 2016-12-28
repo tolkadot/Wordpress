@@ -1,3 +1,5 @@
+----------------------------------------FUNCTIONS.PHP-------------------------------------------------------------------
+
 //Login to get the price for a specific collection
 add_action('init', 'tolka_hide_price_add_cart_not_logged_in');
 function tolka_hide_price_add_cart_not_logged_in() { 
@@ -59,3 +61,54 @@ function tolka_related_product() {
 	//	woocommerce_related_products( apply_filters( 'woocommerce_output_related_products_args', $args ) );
 		wc_get_template( 'single-product/related.php', $args );
 }
+
+----------------------------------------SINGLE/RELATED.PHP-------------------------------------------------------------------
+
+if ( $products->have_posts() ) : ?>
+
+	<div class="related products">
+
+		<h2><?php _e( 'Related Products', 'woocommerce' ); ?></h2>
+
+		<?php woocommerce_product_loop_start(); ?>
+
+			<?php while ( $products->have_posts() ) : $products->the_post(); ?>
+
+				<li <?php post_class(); ?>>
+					<?php
+					do_action( 'woocommerce_before_shop_loop_item' );
+					do_action( 'woocommerce_before_shop_loop_item_title' );
+					do_action( 'woocommerce_shop_loop_item_title' );
+					
+if ( has_term( 'restricted', 'product_cat' ) )  {
+echo '<a href="' . get_permalink(woocommerce_get_page_id('myaccount')) . '">' . __('Login to see prices', 'theme_name') . '</a>';
+}
+else {
+ global $product;
+   wc_get_template( 'loop/price.php' );
+		if ( $product ) {
+			$defaults = array(
+				'quantity' => 1,
+				'class'    => implode( ' ', array_filter( array(
+						'button',
+						'product_type_' . $product->product_type,
+						$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+						$product->supports( 'ajax_add_to_cart' ) ? 'ajax_add_to_cart' : ''
+				) ) )
+			);
+
+			$args = apply_filters( 'woocommerce_loop_add_to_cart_args', wp_parse_args( $args, $defaults ), $product );
+
+			wc_get_template( 'loop/add-to-cart.php', $args );
+		}
+ }
+					
+					?>
+</li>
+			<?php endwhile; // end of the loop. ?>
+
+		<?php woocommerce_product_loop_end(); ?>
+
+	</div>
+
+<?php endif;
