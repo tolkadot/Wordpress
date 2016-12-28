@@ -6,11 +6,15 @@ if ( !is_user_logged_in()){
  remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
  remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
  remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+ add_action( 'woocommerce_after_single_product_summary', 'tolka_related-product', 20 );
  add_action( 'woocommerce_single_product_summary', 'tolka_login_for_price', 31 );
  add_action( 'woocommerce_after_shop_loop_item', 'tolka_login_for_price', 11 );
 }
 }
  
+add_action('tolkadot_action', 'tolka_login_for_price', 10 );
+
 ///Login to get the price for a specific collection
 function tolka_login_for_price() {
     if ( has_term( 'restricted', 'product_cat' ) )  {
@@ -44,4 +48,14 @@ else {
      
  }
 	
+}
+function tolka_related_product() {
+		$args = array(
+			'posts_per_page' 	=> 4,
+			'columns' 			=> 4,
+			'orderby' 			=> 'rand'
+		);
+
+	//	woocommerce_related_products( apply_filters( 'woocommerce_output_related_products_args', $args ) );
+		wc_get_template( 'single-product/related.php', $args );
 }
