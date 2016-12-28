@@ -1,39 +1,47 @@
+//Login to get the price for a specific collection
 add_action('init', 'tolka_hide_price_add_cart_not_logged_in');
- 
 function tolka_hide_price_add_cart_not_logged_in() { 
 if ( !is_user_logged_in()){
  remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+ remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
  remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
  remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
- remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );  
  add_action( 'woocommerce_single_product_summary', 'tolka_login_for_price', 31 );
  add_action( 'woocommerce_after_shop_loop_item', 'tolka_login_for_price', 11 );
 }
 }
  
+///Login to get the price for a specific collection
 function tolka_login_for_price() {
     if ( has_term( 'restricted', 'product_cat' ) )  {
 echo '<a href="' . get_permalink(woocommerce_get_page_id('myaccount')) . '">' . __('Login to see prices', 'theme_name') . '</a>';
 }
 else {
  global $product;
-?>
-<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+ if (is_shop()) {
 
-<?php if ( $price_html = $product->get_price_html() ) : ?>
-	<span class="price"><?php echo $price_html; ?></span>
-<?php endif; 
-echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-	sprintf( '<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s">%s</a>',
-		esc_url( $product->add_to_cart_url() ),
-		esc_attr( isset( $quantity ) ? $quantity : 1 ),
-		esc_attr( $product->id ),
-		esc_attr( $product->get_sku() ),
-		esc_attr( isset( $class ) ? $class : 'button' ),
-		esc_html( $product->add_to_cart_text() )
-	),
-$product );
+   wc_get_template( 'loop/price.php' );
+		if ( $product ) {
+			$defaults = array(
+				'quantity' => 1,
+				'class'    => implode( ' ', array_filter( array(
+						'button',
+						'product_type_' . $product->product_type,
+						$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+						$product->supports( 'ajax_add_to_cart' ) ? 'ajax_add_to_cart' : ''
+				) ) )
+			);
 
-}}
+			$args = apply_filters( 'woocommerce_loop_add_to_cart_args', wp_parse_args( $args, $defaults ), $product );
 
-
+			wc_get_template( 'loop/add-to-cart.php', $args );
+		}
+ }
+ else {
+     wc_get_template( 'single-product/price.php' );
+     do_action( 'woocommerce_' . $product->product_type . '_add_to_cart' );
+ }
+     
+ }
+	
+}
