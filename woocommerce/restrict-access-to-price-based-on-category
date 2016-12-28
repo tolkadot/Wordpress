@@ -80,7 +80,7 @@ if ( $products->have_posts() ) : ?>
 					do_action( 'woocommerce_before_shop_loop_item_title' );
 					do_action( 'woocommerce_shop_loop_item_title' );
 					
-if ( has_term( 'restricted', 'product_cat' ) )  {
+if(( !is_user_logged_in()) && ( has_term( 'restricted', 'product_cat' ) ))  {
 echo '<a href="' . get_permalink(woocommerce_get_page_id('myaccount')) . '">' . __('Login to see prices', 'theme_name') . '</a>';
 }
 else {
