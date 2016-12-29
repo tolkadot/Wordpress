@@ -2,3 +2,13 @@ example :
       global $wp_filter;
       var_export ($wp_filter['woocommerce_after_main_content']);
       do_action( 'woocommerce_after_main_content' );
+	
+      
+      global $wp_filter;
+      var_export ($wp_filter['woocommerce_account_content']);
+		
+            
+            
+            	            <?php
+			        	var_dump($label,$endpoint);
+			        	?>
