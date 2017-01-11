@@ -1,3 +1,9 @@
 
 /template-parts/content-search.php -> change paths
 /template--front-page -> change paths
+
+functions.yith-request-quote.php LINE 632 - add the following line to remove the custom script from the shopping cart session.
+(632) $_SESSION['cart']->reset(true);
+
+yith-woocommerce-request-a-quote-premium/assets/js/frontend.min.js -> comment out all instances of 
+row.after( ' <img src="'+ajax_loader+'" >' );
