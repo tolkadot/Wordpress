@@ -1,0 +1,101 @@
+ * Add woocommerce customiser section
+ **/
+ 
+ function starter_customize_register( $wp_customize ) 
+{
+    $wp_customize->add_section( 'starter_new_section_name' , array(
+        'title'    => __( 'Local Pickup Options', 'starter' ),
+        'priority' => 30
+    ) );   
+    
+    for ($i=1; $i<10; $i++){
+// Local Pickup Options
+ $wp_customize->add_setting('local_pickup_option'.$i, array(
+ 'default' => 'Chemist Name',
+ 'type' => 'option',
+ 'capability' => 'edit_theme_options',
+ ));
+
+ $wp_customize->add_control('local_pickup_option'.$i, array(
+ 'label' => __('Option '.$i, options_links_title),
+ 'section' => 'starter_new_section_name',
+ 'type' => 'option',
+ 'priority' => 5,
+ 'settings' => 'local_pickup_option'.$i
+ ));
+    }
+
+}
+add_action( 'customize_register', 'starter_customize_register');
+
+/**
+ * Add store location select dropdown in checkout page
+ **/
+add_filter( 'woocommerce_checkout_fields' , 'custom_store_pickup_field');
+ 
+function custom_store_pickup_field( $fields ) {
+
+$temp_arr = ["Choose from the list for local pickup"];
+//loop through the imputs for local pickup locations - only display if the field is not 1) Default Value 2) Empty
+for ($i=1; $i<10; $i++){
+   $option = get_option('local_pickup_option'.$i,'Option '.$i);
+        if ((!strstr($option,'Option')) && ($option != '')) {
+            array_push($temp_arr, $option);
+             //var_dump($temp_arr, $option);
+            }
+}
+
+
+    $fields['billing']['store_pickup'] = array(
+    'type'     => 'select',
+    'options'  => $temp_arr,
+    'label'     => __('Store Pick Up Location', 'woocommerce'),
+    'required'  => false,
+    'class'     => array('store-pickup form-row-wide'),
+    'clear'     => true
+     );
+     return $fields;
+}
+
+
+/// Use this in the order confirmation to show the local pickup location
+add_action( 'woocommerce_checkout_update_order_meta', 'store_pickup_field_update_order_meta' );
+function store_pickup_field_update_order_meta( $order_id ) {
+        if ( $_POST[ 'store_pickup' ] )
+        $tmp_option = esc_attr( $_POST[ 'store_pickup' ] );
+        var_dump($tmp_option);
+        //$tmp_option = substr($tmp_option, 7);
+        $tmp_option1 = get_option('local_pickup_option'.$tmp_option,'Option '.$tmp_option);
+        update_post_meta( $order_id, 'Store PickUp Location', $tmp_option1 );
+}
+
+
+///////Use this in the order confirmation to show the local pickup location
+add_action('td_local_pickup_print', 'store_pickup_field_update_order_details');
+function store_pickup_field_update_order_details($order) {
+    global $woocommerce;
+    $order_id = $order->id;
+    $order_shipping_2 = $order->get_shipping_method();
+    if ($order_shipping_2 == "Local Pickup") {
+    // If local pickup (Can I get this from meta)
+    // print local pickup location
+   $tmp_meta =  get_post_meta($order_id, 'Store PickUp Location', true);
+   ?> <h2> Local Pickup From  </h2><table class = "pickup-shop-table "><th><?php echo $tmp_meta  ?></th><table> <?php
+    }
+}
+
+add_action( 'woocommerce_order_details_after_order_table', 'woocommerce_order_again_button' );
+
+///////Use this in the email template file to print the location of the local pickup
+add_action('td_local_pickup_print-email', 'store_pickup_field_update_order_details_email');
+function store_pickup_field_update_order_details_email($order) {
+    global $woocommerce;
+    $order_id = $order->id;
+    $order_shipping_2 = $order->get_shipping_method();
+    if ($order_shipping_2 == "Local Pickup") {
+    // If local pickup (Can I get this from meta)
+    // print local pickup location
+   $tmp_meta_email =  get_post_meta($order_id, 'Store PickUp Location', true);
+   ?> <h2> Local Pickup From :  <?php echo $tmp_meta_email  ?><h2><?php
+    }
+}
