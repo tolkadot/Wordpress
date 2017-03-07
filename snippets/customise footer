@@ -116,5 +116,9 @@ $linkedin = get_option('linkedin');
               </a>
 </div>    
 
+///////ENQUEUE FONT AWESOME IN FUNCTIONS.PHP
+wp_enqueue_style( 'my-child-fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' );
+
+
 
 
