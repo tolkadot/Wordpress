@@ -94,15 +94,3 @@ function footer_customize_register( $wp_customize )
 }
 add_action( 'customize_register', 'footer_customize_register');
 
-//Used to remove the coupon message when the custom script is in the cart
-//add_filter( 'woocommerce_coupon_message', '__return_empty_string' );
-
-//Add footer Navigation
-function register_my_menus() {
-  register_nav_menus(
-    array(
-      'footer-menu' => __( 'Footer Menu' ),
-    
-    )
-  );
-}
