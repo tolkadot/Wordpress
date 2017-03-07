@@ -94,18 +94,27 @@ function footer_customize_register( $wp_customize )
 }
 add_action( 'customize_register', 'footer_customize_register');
 
-
+------------------footer.php-------------
 
 <?php 
 $instagram = get_option('instagram');
-$facebook = get_option('facebook');  ?>
+$facebook = get_option('facebook'); 
+$linkedin = get_option('linkedin');
+?php>
 
-              <a href="<?php echo $instagram ?>"> 
-              <svg class="icon-instagram">
-              <use xlink:href="#icon-instagram"></use>
-              </svg>
+<div class="row social-row">
+               <a class="social" href="<?php echo $instagram ?>"> 
+              <i class="fa fa-instagram"></i>
+              </a>
+              
+               <a class="social" href="<?php echo $facebook ?>">
+               <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
 
+		       <a class="social" href="<?php echo $linkedin ?>">
+               <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+</div>    
 
 
 
