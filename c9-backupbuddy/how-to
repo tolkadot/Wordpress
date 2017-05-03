@@ -1,0 +1,13 @@
+1) create new c9 workspace with html5 temlpate
+
+$mysql-ctl install
+
+ Root User: tolkadot
+   Database Name: c9
+   
+$phpmyadmin-ctl install
+
+  Username: tolkadot
+  
+ 
+ open phpmyadmin and change the password for the default user
