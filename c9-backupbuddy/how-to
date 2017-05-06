@@ -9,5 +9,49 @@ $phpmyadmin-ctl install
 
   Username: tolkadot
   
+ $mysqladmin -u root password yourpassword -> change the root password
+ $mysqladmin -u tolkadot password yourpassword
  
- open phpmyadmin and change the password for the default user
+ make a backup of php.ini
+ 
+ open phpmyadmin and change the password for the default user 
+ 
+ upload importbuddy (need to download this from the individual install of the plugin)
+ upload the .zip backup (check the size of the downloaded zip file against the one on the host)
+ Both of these need to go into the root directory.
+ 
+ run importbuddy.php
+ 
+ create a database with the details given by importbuddy.php
+ database utf8_general_ci
+ 
+ follow the process
+ 
+ troubleshooting
+ 
+ 1) restore php.ini
+ 2) restore .htaccess
+ ***************.htaccess******************
+ # BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+***************.htaccess******************
+3)disable plugins - wp_options table - > active_plugins -> a:0:{}	
+4) wp_config - check this file and comment out any lines that might be causing issues
+extra lines in wp.config
+
+
+define('WP_HOME','https://www.jewels2-tolkadot.c9users.io/');
+
+define('WP_SITEURL','https://www.jewels2-tolkadot.c9users.io');
+
+
+
+ 
