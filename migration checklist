@@ -6,7 +6,7 @@ Dev Server
 2) push latest theme to github
 3) phmyadmin -> export database (make sure create if not exists is NOT checked)
 4) download wp-config.php & .htaccess
-5) Change url in database
+5) Change url in database (and table prefix if necessary)
 
 Live Server (phpMyAdmin)
 1) backup database
