@@ -2,12 +2,12 @@ create new c9 workspace with php temlpate
 
 $mysql-ctl install
 
- Root User: tolkadot
+ Root User: <username>
    Database Name: c9
    
 $phpmyadmin-ctl install
 
-  Username: tolkadot
+  Username: <username>
   
  $mysqladmin -u root password yourpassword -> change the root password
  $mysqladmin -u tolkadot password yourpassword
