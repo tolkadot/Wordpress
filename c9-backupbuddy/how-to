@@ -20,6 +20,11 @@ $phpmyadmin-ctl install
  upload the .zip backup (check the size of the downloaded zip file against the one on the host)
  Both of these need to go into the root directory.
  
+ *check the size of posts  & post_meta - if they are massive exclude them from the script
+ update these files with the new url and manually uplaod them
+ 
+ edit importbuddy with the following line :
+ ini_set('MAX_EXECUTION_TIME', -1);
  run importbuddy.php
  
  create a database with the details given by importbuddy.php
