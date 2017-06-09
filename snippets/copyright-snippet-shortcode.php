@@ -8,3 +8,6 @@ return $copyright;
 
 }
 add_shortcode( 'do_copyright', 'tolka_copyright' );
+
+
+echo do_shortcode('[CONTACT-US-FORM]');
