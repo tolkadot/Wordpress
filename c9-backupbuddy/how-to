@@ -29,6 +29,11 @@ $phpmyadmin-ctl install
  
  create a database with the details given by importbuddy.php
  database utf8_general_ci
+
+search the database and replace for jotk
+ utf8mb4_unicode_520_ci to utf8_general_ci
+utf8mb4  to utf8
+
  
  follow the process
  
