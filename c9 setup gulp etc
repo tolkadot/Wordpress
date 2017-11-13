@@ -1,0 +1,9 @@
+Apache/PHP setup: check this link https://mallinson.ca/osx-web-development/. If you think that it is very complicated you may use a tool like MAMP https://www.mamp.info/en/ instead. You don't need to install MySQL in your local machine as you can use the Gozer’s local MySQL server.
+Install GIT client like SourceTree https://www.sourcetreeapp.com/
+Install Composer: https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx
+Install Node (current version) and npm https://docs.npmjs.com/getting-started/installing-node
+
+* npm issue worked around by : nvm install v6.11.3
+Install gulp https://semaphoreci.com/community/tutorials/getting-started-with-gulp-js
+
+
