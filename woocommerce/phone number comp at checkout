@@ -2,6 +2,6 @@
 add_filter( 'woocommerce_checkout_fields' , 'koko_override_checkout_fields' );
 
 function koko_override_checkout_fields( $fields ) {
-     $fields['order']['billing_phone']['required'] = 'true';
+     $fields['billing']['billing_phone']['required'] = 'true';
      return $fields;
 }
