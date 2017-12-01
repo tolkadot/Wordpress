@@ -7,3 +7,28 @@ Install Node (current version) and npm https://docs.npmjs.com/getting-started/in
 Install gulp https://semaphoreci.com/community/tutorials/getting-started-with-gulp-js
 
 
+
+
+/*************************************************************************************/
+
+Set up a php/apache server
+Install Composer
+Composer.json
+{
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "johnpbloch/wordpress": "4.9.1",
+    "fancyguy/wordpress-monolog": "dev-master",
+    "wpackagist-plugin/advanced-custom-fields": "*",
+    "wpackagist-plugin/posts-to-posts": "1.4.x"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp"
+  }
+}
