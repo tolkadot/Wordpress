@@ -6,14 +6,19 @@ Install Node (current version) and npm https://docs.npmjs.com/getting-started/in
 * npm issue worked around by : nvm install v6.11.3
 Install gulp https://semaphoreci.com/community/tutorials/getting-started-with-gulp-js
 
-
-
-
 /*************************************************************************************/
+https://davidwinter.me/install-and-manage-wordpress-with-composer/
 
-Set up a php/apache server
-Install Composer
-Composer.json
+
+-- Set up a php/apache server
+-- Install Composer
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+
+-- Composer.json
 {
   "repositories": [
     {
@@ -32,3 +37,27 @@ Composer.json
     "wordpress-install-dir": "wp"
   }
 }
+php composer.phar install
+php composer.phar update
+- whichever is required.
+
+cp -R  wp/wp-content wp-content
+cp   wp/index.php index.php                                                                                                                                    
+cp   wp/wp-config-sample.php wp-config.php
+
+WPCONFIG EDITS : 
+ /index.php require( dirname( __FILE__ ) . '/wp/wp-blog-header.php' );
+
+ GET SALT -  https://api.wordpress.org/secret-key/1.1/salt/ 
+define('WP_CONTENT_DIR', __DIR__ . '/wp-content');
+define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
+define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
+define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
+
+phpmyadmin-ctl install
+
+- Update wp-config.php
+ 
+
+ -- Get theme - understrap
+ https://understrap.github.io/
