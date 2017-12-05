@@ -1,5 +1,0 @@
-/inc/structure/header.php -> this is where the php code is.
-
-To make a full screen background for the front page only ->
-front-page.php is the template file -> add this before the get_header();
-<body style="background: url('https://janine-tolkadot.c9users.io/wp-content/uploads/2016/03/background4.jpg') no-repeat center center fixed;">
