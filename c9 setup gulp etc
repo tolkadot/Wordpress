@@ -41,12 +41,15 @@ php composer.phar install
 php composer.phar update
 - whichever is required.
 
-cp -R  wp/wp-content wp-content
 cp   wp/index.php index.php                                                                                                                                    
 cp   wp/wp-config-sample.php wp-config.php
 
-WPCONFIG EDITS : 
+/index.php EDITS :
  /index.php require( dirname( __FILE__ ) . '/wp/wp-blog-header.php' );
+ 
+WP- CONFIG EDITS (MUST GO ABOVE HAPPY BLOGGING) : 
+
+CHANGE ABSPATH 	define('ABSPATH', dirname(__FILE__) . '/wp');
 
  GET SALT -  https://api.wordpress.org/secret-key/1.1/salt/ 
 define('WP_CONTENT_DIR', __DIR__ . '/wp-content');
@@ -57,7 +60,18 @@ define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
 phpmyadmin-ctl install
 
 - Update wp-config.php
- 
+
+git init 
+touch .gitignore 
+get a git ignore file from here : 
+https://gist.github.com/salcode/b515f520d3f8207ecd04
 
  -- Get theme - understrap
  https://understrap.github.io/
+ Upload to the theme directory & commit
+ 
+ --INSTALL GULP
+ npm install --global gulp-cli
+ -> go to theme directory
+npm install
+ 
