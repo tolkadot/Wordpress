@@ -7,3 +7,14 @@ sudo mv /etc/apache2/envvars /etc/apache2/envvars.bak
 sudo apt-get remove libapache2-mod-php5 -y
 sudo apt-get install libapache2-mod-php7.0 -y
 sudo cp /etc/apache2/envvars.bak /etc/apache2/envvars
+
+
+If having issue where php is not being rendered -> 
+
+sudo apt purge libapache2-mod-php7.0 libapache2-mod-php
+
+then
+
+sudo apt install libapache2-mod-php7.0 libapache2-mod-php
+
+sudo a2enmod php7.0
