@@ -10,7 +10,8 @@ Install gulp https://semaphoreci.com/community/tutorials/getting-started-with-gu
 https://davidwinter.me/install-and-manage-wordpress-with-composer/
 
 
--- Set up a php/apache server
+-- Set up a php/apache server - Update to php 7.0
+
 -- Install Composer
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
@@ -29,7 +30,7 @@ php -r "unlink('composer-setup.php');"
   "require": {
     "php": ">=5.4",
     "johnpbloch/wordpress": "4.9.1",
-    "fancyguy/wordpress-monolog": "dev-master",
+    "inpsyde/wonolog": "*",
     "wpackagist-plugin/advanced-custom-fields": "*",
     "wpackagist-plugin/posts-to-posts": "1.4.x"
   },
@@ -40,6 +41,8 @@ php -r "unlink('composer-setup.php');"
 php composer.phar install
 php composer.phar update
 - whichever is required.
+
+composer require inpsyde/Wonolog (do this on the cmd line)
 
 cp   wp/index.php index.php                                                                                                                                    
 cp   wp/wp-config-sample.php wp-config.php
@@ -57,6 +60,8 @@ define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
 define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
 define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
 
+require_once('vendor/autoload.php'); (AUTOLOAD COMPOSER)
+
 phpmyadmin-ctl install
 
 - Update wp-config.php
@@ -68,10 +73,12 @@ https://gist.github.com/salcode/b515f520d3f8207ecd04
 
  -- Get theme - understrap
  https://understrap.github.io/
- Upload to the theme directory & commit
+ Upload to the theme directory in it's own dir as it unzips in to the current dir & commit
  
  --INSTALL GULP
  npm install --global gulp-cli
  -> go to theme directory
 npm install
+
+https://inpsyde.github.io/Wonolog/
  
