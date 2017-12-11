@@ -56,9 +56,9 @@ CHANGE ABSPATH 	define('ABSPATH', dirname(__FILE__) . '/wp');
 
  GET SALT -  https://api.wordpress.org/secret-key/1.1/salt/ 
 define('WP_CONTENT_DIR', __DIR__ . '/wp-content');
-define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
-define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
-define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
+define('WP_CONTENT_URL', 'https://' . $_SERVER['SERVER_NAME'] . '/wp-content');
+define('WP_SITEURL', 'https://' . $_SERVER['SERVER_NAME'] . '/wp');
+define('WP_HOME', 'https://' . $_SERVER['SERVER_NAME']);
 
 require_once('vendor/autoload.php'); (AUTOLOAD COMPOSER)
 
@@ -80,5 +80,17 @@ https://gist.github.com/salcode/b515f520d3f8207ecd04
  -> go to theme directory
 npm install
 
+-- INSTALL LOGGING
 https://inpsyde.github.io/Wonolog/
+create /mu-plugins/womolog.php -> \Inpsyde\Wonolog\bootstrap();
+
+ --INSTALL ANGULAR
+
+https://code.tutsplus.com/tutorials/creating-single-page-applications-with-wordpress-and-angularjs--cms-25095
+npm install angular angular-route --save
+
+-- Add the following to function.php
+wp_enqueue_script('angularjs', get_template_directory_uri() .'/node_modules/angular/angular.min.js');
+wp_enqueue_script('angularjs-route', get_template_directory_uri() .'/node_modules/angular-route/angular-route.min.js');
+wp_enqueue_script('scripts', get_stylesheet_directory_uri() . '/js/tolka-theme.js', array( 'angularjs', 'angularjs-route' ));
  
