@@ -94,3 +94,4 @@ wp_enqueue_script('angularjs', get_template_directory_uri() .'/node_modules/angu
 wp_enqueue_script('angularjs-route', get_template_directory_uri() .'/node_modules/angular-route/angular-route.min.js');
 wp_enqueue_script('scripts', get_stylesheet_directory_uri() . '/js/tolka-theme.js', array( 'angularjs', 'angularjs-route' ));
  
+wp rest api comes with wordpress now - eg https://composer3-tolkadot.c9users.io/wp-json so no need to install a plugin
