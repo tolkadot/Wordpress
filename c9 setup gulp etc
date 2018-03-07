@@ -19,6 +19,11 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
 
+**on mac php7 
+>>>sudo su
+>>>curl -sS https://getcomposer.org/installer | php
+**)
+
 -- Composer.json
 {
   "repositories": [
