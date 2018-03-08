@@ -35,6 +35,7 @@ php -r "unlink('composer-setup.php');"
   "require": {
     "php": ">=5.4",
     "johnpbloch/wordpress": "4.9.1",
+    "monolog/monolog": "*",
     "inpsyde/wonolog": "*",
     "wpackagist-plugin/advanced-custom-fields": "*",
     "wpackagist-plugin/posts-to-posts": "1.4.x"
@@ -48,16 +49,19 @@ php composer.phar update
 - whichever is required.
 
 composer require inpsyde/Wonolog (do this on the cmd line)
+php composer.phar update
 
 cp   wp/index.php index.php                                                                                                                                    
 cp   wp/wp-config-sample.php wp-config.php
 
 /index.php EDITS :
- /index.php require( dirname( __FILE__ ) . '/wp/wp-blog-header.php' );
+
+  require( dirname( __FILE__ ) . '/wp/wp-blog-header.php' );
  
 WP- CONFIG EDITS (MUST GO ABOVE HAPPY BLOGGING) : 
 
-CHANGE ABSPATH 	define('ABSPATH', dirname(__FILE__) . '/wp');
+CHANGE ABSPATH 	
+  define('ABSPATH', dirname(__FILE__) . '/wp');
 
  GET SALT -  https://api.wordpress.org/secret-key/1.1/salt/ 
 define('WP_CONTENT_DIR', __DIR__ . '/wp-content');
@@ -65,9 +69,13 @@ define('WP_CONTENT_URL', 'https://' . $_SERVER['SERVER_NAME'] . '/wp-content');
 define('WP_SITEURL', 'https://' . $_SERVER['SERVER_NAME'] . '/wp');
 define('WP_HOME', 'https://' . $_SERVER['SERVER_NAME']);
 
-require_once('vendor/autoload.php'); (AUTOLOAD COMPOSER)
+require_once('vendor/autoload.php'); 
+(AUTOLOAD COMPOSER)
 
-phpmyadmin-ctl install
+phpmyadmin-ctl install (this is only for c9)
+https://www.phpmyadmin.net/downloads/
+https://coolestguidesontheplanet.com/get-apache-mysql-php-and-phpmyadmin-working-on-macos-sierra/
+Create a new database etc
 
 - Update wp-config.php
 
@@ -80,7 +88,7 @@ https://gist.github.com/salcode/b515f520d3f8207ecd04
  https://understrap.github.io/
  Upload to the theme directory in it's own dir as it unzips in to the current dir & commit
  
- --INSTALL GULP
+ --INSTALL GULP (if using understrap this is already in there so you just need to install)
  npm install --global gulp-cli
  -> go to theme directory
 npm install
