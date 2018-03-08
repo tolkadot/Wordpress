@@ -38,12 +38,13 @@ php -r "unlink('composer-setup.php');"
     "monolog/monolog": "*",
     "inpsyde/wonolog": "*",
     "wpackagist-plugin/advanced-custom-fields": "*",
-    "wpackagist-plugin/posts-to-posts": "1.4.x"
+    "wpackagist-plugin/posts-to-posts": "1.6.5"
   },
   "extra": {
     "wordpress-install-dir": "wp"
   }
 }
+
 php composer.phar install
 php composer.phar update
 - whichever is required.
