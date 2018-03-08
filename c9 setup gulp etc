@@ -96,7 +96,12 @@ npm install
 
 -- INSTALL LOGGING
 https://inpsyde.github.io/Wonolog/
-create /mu-plugins/womolog.php -> \Inpsyde\Wonolog\bootstrap();
+create /mu-plugins/wonolog.php ->
+
+<?php
+if ( function_exists( 'Inpsyde\Wonolog\bootstrap' ) ) {
+    Inpsyde\Wonolog\bootstrap();
+}
 
  --INSTALL ANGULAR
 
