@@ -9,6 +9,8 @@ Install gulp https://semaphoreci.com/community/tutorials/getting-started-with-gu
 /*************************************************************************************/
 https://davidwinter.me/install-and-manage-wordpress-with-composer/
 
+to restart apache on mac
+-- sudo /usr/sbin/apachectl restart
 
 -- Set up a php/apache server - Update to php 7.0
 
