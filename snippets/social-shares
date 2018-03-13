@@ -1,0 +1,54 @@
+//FUNCTIONS.PHP
+
+add_action( 'wp_enqueue_scripts', 'add_fontawesome' );
+function add_fontawesome(){ 
+      wp_enqueue_style( 'load-fa', 'https://use.fontawesome.com/releases/v5.0.8/css/all.css' );
+}
+
+add_shortcode('share_me', 'tolka_social_sharing_buttons');
+
+function tolka_social_sharing_buttons() {
+       
+        $content = "";
+        // Get current page URL 
+        $tolkaURL = urlencode(get_permalink());
+        // Get current page title
+        $tolkaTitle = str_replace( ' ', '%20', get_the_title());
+        
+        $twitterURL = 'https://twitter.com/intent/tweet?text='.$tolkaTitle.'&amp;url='.$tolkaURL.'&amp;';
+        $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$tolkaURL;
+        $googleURL = 'https://plus.google.com/share?url='.$tolkaURL;
+        $linkedInURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$tolkaURL.'&amp;title='.$tolkaTitle;
+ 
+       
+        // Add sharing button at the end of page/page content       
+        $content .= '<div class="tolka-social">';
+        $content .= '<h5>SHARE THIS POST</h5> <a class="tolka-link tolka-twitter" href="'. $twitterURL .'" target="_blank"><i class="fab fa-twitter-square"></i></a>';
+        $content .= '<a class="tolka-link tolka-facebook" href="'.$facebookURL.'" target="_blank"><i class="fab fa-facebook-square"></i></a>';
+        $content .= '<a class="tolka-link tolka-googleplus" href="'.$googleURL.'" target="_blank"><i class="fab fa-google-plus-square"></i></a>';
+        $content .= '<a class="tolka-link tolka-linkedin" href="'.$linkedInURL.'" target="_blank"><i class="fab fa-linkedin"></i></a>';
+        $content .= '</div>';
+        
+        return $content;   
+};
+
+//CSS
+.tolka-link  {
+	font-size: 3em;
+	margin: 5px;
+}
+.tolka-link.tolka-facebook {
+color: #3b5998
+}
+
+.tolka-link.tolka-twitter{
+color: #55acee;
+}
+
+.tolka-link.tolka-linkedin{
+color: #0077b5;
+}
+
+.tolka-link.tolka-googleplus{
+color: #dc4e41;
+}
