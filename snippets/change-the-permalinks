@@ -21,11 +21,8 @@ function custom_rewrite_rules( $wp_rewrite ) {
     
     $feed_rules = array(
 
-      '^blog/?' => 'index.php?name=$matches[1]',
+      '^blog/([^/]+)/?' => 'index.php?name=$matches[1]',
     );
-
-var_dump($feed_rules);
-
     $wp_rewrite->rules = $feed_rules + $wp_rewrite->rules;
-    return $wp_rewrite->rules;;
+    return $wp_rewrite->rules;
 }
