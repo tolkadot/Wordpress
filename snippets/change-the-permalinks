@@ -1,0 +1,31 @@
+
+
+//this part changes the url of all posts with category 'fastvue' from /%category%/blog/%postname%/ to /blog/%postname%/
+
+add_filter( 'post_link', 'custom_permalink', 10, 3 );
+function custom_permalink( $permalink, $post, $leavename ) {
+    // Get the categories for the post
+    $category = get_the_category($post->ID); 
+    if (  !empty($category) && $category[0]->cat_name == "fastvue" ) {
+        $permalink = trailingslashit( home_url('/blog/'. $post->post_name .'/' ) );
+    }
+    return $permalink;
+}
+
+
+
+//this part tells /blog/postname to redirect to ?name=postname
+
+add_action('generate_rewrite_rules', 'custom_rewrite_rules');
+function custom_rewrite_rules( $wp_rewrite ) {
+    
+    $feed_rules = array(
+
+      '^blog/?' => 'index.php?name=$matches[1]',
+    );
+
+var_dump($feed_rules);
+
+    $wp_rewrite->rules = $feed_rules + $wp_rewrite->rules;
+    return $wp_rewrite->rules;;
+}
