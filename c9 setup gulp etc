@@ -91,6 +91,18 @@ https://gist.github.com/salcode/b515f520d3f8207ecd04
  https://understrap.github.io/
  Upload to the theme directory in it's own dir as it unzips in to the current dir & commit
  
+ To update the understrap parent theme - download and replace
+ Then in the child theme :
+ npm install
+ gulp scripts
+ gulp styles
+ 
+ To update the understrap child theme - replace package.json & gulpfile.js
+ npm install
+ gulp scripts
+ gulp styles
+ 
+ 
  --INSTALL GULP (if using understrap this is already in there so you just need to install)
  npm install --global gulp-cli
  -> go to theme directory
