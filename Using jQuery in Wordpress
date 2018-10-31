@@ -1,0 +1,7 @@
+(function($) {
+$(document).ready(function() {
+$('.your-class').addClass('do-my-bidding');
+})
+})(jQuery);
+
+    wp_enqueue_script( 'cs ', get_stylesheet_directory_uri() . '/js/cs.js', array('jquery'), '1.0' );
