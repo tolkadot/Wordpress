@@ -1,6 +1,0 @@
-sign up for google analytics.
-verify site using google analytics -> add a txt record to the dns with google verification
-
-Get meta tags to verify ownership
-    <meta name="google-site-verification" content="uLvf5sJ5eXPn6fZd9TmHdXfjuKEw6ELi4GQZx65xWQQ" />
-    <meta name="google-site-verification" content="y0FkeynYsN8kQt56kOhZOSiHKJdT9HwqLjPyyCEUTSE" />
