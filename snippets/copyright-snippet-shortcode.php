@@ -11,3 +11,9 @@ add_shortcode( 'do_copyright', 'tolka_copyright' );
 
 
 echo do_shortcode('[CONTACT-US-FORM]');
+
+------------------
+Or just use this
+-------------------
+$thisyear = date("Y");
+$copyright = " Copyright &copy; " . $thisyear . " Club Assist. All rights reserved.";
