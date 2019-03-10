@@ -1,4 +1,5 @@
 //FUNCTIONS.PHP
+https://crunchify.com/how-to-create-social-sharing-button-without-any-plugin-and-script-loading-wordpress-speed-optimization-goal/
 
 add_action( 'wp_enqueue_scripts', 'add_fontawesome' );
 function add_fontawesome(){ 
